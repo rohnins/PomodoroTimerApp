@@ -2,14 +2,23 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Pomodoro Timer"
-        Background="{StaticResource AppBackground}"
         Width="400" Height="300">
+    <Window.Background>
+        <LinearGradientBrush x:Name="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop x:Name="GradientStop1" Color="#cd1014" Offset="0" />
+            <GradientStop x:Name="GradientStop2" Color="White" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="TimerDisplay" Text="25:00" />
+            <TextBlock x:Name="TimerDisplay" Text="25:00" HorizontalAlignment="Center" />
             <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" />
             <Button x:Name="PauseButton" Content="Pause" Click="PauseButton_Click" />
             <Button x:Name="ResetButton" Content="Reset" Click="ResetButton_Click" />
+            <Button x:Name="SettingsButton" Content="Settings" Click="SettingsButton_Click" />
+            <TextBlock x:Name="StreakCounter" Text="Streak: 0 days" FontSize="16" Foreground="White" Margin="0,10" />
+            <!-- Notification Area -->
+            <TextBlock x:Name="NotificationText" Text="" FontSize="16" Foreground="White" Margin="0,10" HorizontalAlignment="Center" />
         </StackPanel>
     </Grid>
 </Window>
